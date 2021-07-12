@@ -34,5 +34,7 @@ DeadlineRepository \custom\scripts\Submission
 HuskStandalone (DIR)
 DeadlineRepository \custom\plugins\HuskStandalone
 
+<H3>
 Developed for University of Hertfordshire - Digital Animation 3D & VFX Degree
+</H3>
 https://www.herts.ac.uk/courses/undergraduate/ba-hons-3d-animation-and-visual-effects
