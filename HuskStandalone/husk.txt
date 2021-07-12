@@ -1,0 +1,187 @@
+Information:
+  -h [ --help ]                      Show this help
+  -v [ --version ]                   Print the renderer version
+
+Karma Specific Options:
+  --properties                       Print all rendering properties and their
+                                     defaults
+  --property-definitions             Print full information about properties
+                                     (deprecated: please use
+                                     --property-definitions-file)
+  --property-definitions-file arg    Print full information about properties to
+                                     the given file.If the filename is '-',
+                                     output will be written to stdout.
+  --procedurals                      Print all procedural definitions
+  --filters                          Print all filters/oracles
+  -p [ --pixel-samples ] arg (=128)  Samples per pixel
+  --bucket-size arg (=128)           Bucket size
+  --tile-count arg                   Number of tiles in the x and y axis
+                                     respectively
+  --tile-index arg (=0)              Index of the tile to render (0 indexed)
+  --tile-suffix arg                  A suffix to add to the tiled output name.
+                                     Supports variable expansion like the -o
+                                     option (e.g. '_tile%02d')
+  --disable-lighting                 Disable all lighting
+  --ao-samples arg (=1)              Headlight shading: Ambient occlusion
+                                     samples
+  --ao-distance arg (=1)             Headlight shading: Ambient occlusion
+                                     distance cutoff
+  --lock-random arg (=0)             Lock the random number instead of using
+                                     the render frame
+  --dicingcamera arg                 Dice from the specified camera. Uses
+                                     render camera if unspecified.
+  --optimize-offline arg (=0)        Offline optimization level
+                                     This feature is currently disabled.
+  --convergence-mode arg             Override integration method
+                                     'pathtraced': Maximum of 1 indirect ray is
+                                     generated per bounce.
+                                     'distributed': Per-component sampling is
+                                     enabled and the number of indirect rays
+                                     generated per BSDF component type is
+                                     user-controlled.
+                                     'variance': The number of indirect rays is
+                                     calculated based on initial noise
+                                     estimate, target noise threshold, and the
+                                     maximum number of camera rays.
+
+USD Options:
+  --usd-input arg                    The USD file for the scene
+  --resolver-context arg             The file used to initialize the asset
+                                     resolver context for processing the stage.
+  --list-settings                    List all render settings primitives in the
+                                     USD file
+  --list-cameras                     List all cameras in the USD file
+  --purpose arg (=geometry,render)   Specify the purpose for rendering.  This
+                                     is a comma separated list of purposes
+                                     (from {'geometry', 'guide', 'proxy',
+                                     'render'}).
+  --complexity arg (=veryhigh)       Specify geometric complexity ({'low',
+                                     'medium', 'high', 'veryhigh'})
+  --disable-motionblur               Override any render settings and set
+                                     instantaneous shutter to disable motion
+                                     blur
+  -s [ --settings ] arg              Render using properties defined by node.
+                                     You can specify a path relative to
+                                     /Render.
+  --prerender-script arg             Python script to edit the stage right
+                                     before render.  Use the 'stage' variable
+                                     to access the render stage in the Python
+                                     script.
+  --preframe-script arg              Python script to edit the stage before
+                                     each frame is rendered. Use the 'stage'
+                                     variable to access the render stage in the
+                                     Python script.
+  --postframe-script arg             Python script to edit the stage after each
+                                     frame is rendered. Use the 'stage'
+                                     variable to access the render stage in the
+                                     Python script.
+  --postrender-script arg            Python script to edit the stage after all
+                                     frames are rendered. Use the 'stage'
+                                     variable to access the render stage in the
+                                     Python script.
+  --usd-trace arg                    Enable USD tracing.  This should be a
+                                     comma separated list of reports to
+                                     generate from the list below:
+                                       'report' - times and sample counts
+                                       'timing' - time in function
+                                       'chrome' - Generate trace viewer output
+                                                 (see usd-chrome-file)
+                                     Note: this uses the husktrace Python
+                                     script in $HH
+  --usd-chrome-file arg              Enable USD function tracing and save the
+                                     JSON output to the given file.  Note that
+                                     if this option is used it automatically
+                                     enables '--usd-trace chrome'.
+
+Render Settings Overrides:
+  -c [ --camera ] arg                Render from the specified camera
+  -o [ --output ] arg                Output image.  Variables are expanded in
+                                     the string can be represented in various
+                                     ways:
+                                       - $F, $FF $F4:  Current frame number
+                                       - $N:  The N'th frame in the sequence
+                                       - <F>, <FF>, <F4>:  Frame (<UDIM> style)
+                                       - %d, %g, %04d:  Frame (printf style)
+
+  -r [ --res ] arg                   Image resolution (e.g. '--res 1280 720')
+  --pixel-aspect arg (=1)            Pixel aspect ratio
+  --make-output-path                 Create path to the output image if it
+                                     doesn't already exist.
+
+MPlay Settings Overrides:
+  --mplay-monitor arg                Automatically start up an mplay monitor of
+                                     this render using the comma separated list
+                                     of AOV planes (i.e. 'C,diffuse').
+                                     Specifying '-' as the AOV list will
+                                     monitor all AOVs.
+  --mplay-scale arg (=100)           A scale to apply to any mplay render
+                                     (between 10 and 100). This affects both
+                                     the monitor and any product that renders
+                                     to mplay
+  --no-mplay                         Disable any rendering to mplay.  This
+                                     option is useful when rendering on
+                                     headless machines (on a farm)
+  --mplay-update arg (=0.5)          Number of seconds between mplay updates
+  --mplay-session arg                The mplay session label
+  --mplay-bgimage arg                Specify a background image for mplay
+  --mplay-remotehost arg             Specify a remote host and socket port
+                                     (hostname:port) to connect  to for display
+  --mplay-gamma arg (=0)             If the value is greater than 0, this will
+                                     be used as the display gamma value in
+                                     mplay
+  --mplay-lut arg                    Specify a display LUT for mplay
+
+Frame Range:
+  -f [ --frame ] arg (=1)            The start frame for rendering
+  -n [ --frame-count ] arg (=1)      The number of frames to render
+  -i [ --frame-inc ] arg (=1)        The frame increment
+
+Rendering:
+  -R [ --renderer ] arg              Choose an specific Hydra head
+  -j [ --threads ] arg (=0)          Thread count:
+                                       '-j 0' use all processors
+                                       '-j 4' use four processors
+                                       '-j -1' use all but one processors
+  --fast-exit arg (=2)               0 - Force a full tear down of the
+                                         USD scene and Hydra
+                                     1 - Fast exit lets the OS tear down
+                                         resources
+                                     2 - Use setting in UsdRenderers.json
+                                         to use delegate preference
+  --snapshot arg (=-1)               Snapshot partial image after this number
+                                     of seconds.
+  --snapshot-path arg                Path to write snapshot to.
+  --exrmode arg (=1)                 OpenEXR saving mode:
+                                      -1 Use HOUDINI_OIIO_EXR variable
+                                       0 Classic driver (HOUDINI_OIIO_EXR=0)
+                                       1 Improved driver (HOUDINI_OIIO_EXR=1)
+
+  --timelimit arg (=-1)              Limit rendering time to this number of
+                                     seconds
+  --timelimit-image                  Time limit applies to images rather than
+                                     the whole sequence
+  --timelimit-nosave-partial         If time limit is exceeded, do not save
+                                     partial results
+  --stdout arg                       Write standard output to the given file
+  --stderr arg                       Write standard error to the given file
+  --append-stdout arg                Append standard output to the given file
+  --append-stderr arg                Append standard error to the given file
+  --windows-console arg              Windows only: open a console for output
+                                     (none|wait|nowait)
+  -V [ --verbose ] arg               Render verbosity (e.g. -Va2)
+                                       0-9  Verbosity of rendering statistics
+                                       p    Enable VEX profiling
+                                            (impacts performance)
+                                       P    Enable VEX profiling and NAN checks
+                                            (severe impact on performance)
+                                       a/A  Turn on/off Alfred style progress
+                                       e/E  Turn on/off elapsed time stamps
+                                       t/T  Turn on/off message time stamps
+
+Note:
+    Redirecting stdout/stderr to 'consolewait' or 'consolenowait'
+    will open a console window for output on Windows.
+
+Note:
+    Sending the C:/Program Files/Side Effects Software/Houdini 18.5.596/bin/husk.exe process a USR1 signal will trigger saving a
+    snapshot image

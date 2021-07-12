@@ -1,0 +1,38 @@
+[SceneFile]
+Type=filename
+Label=Scene Filename
+Category=Scene File
+Index=0
+Description=The scene filename as it exists on the network
+Required=true
+DisableIfBlank=true
+
+[OutputFile]
+Type=filenameSave
+Label=Output
+Category=Rendering Options
+Index=0
+Description=The output filename path
+Required=false
+DisableIfBlank=true
+
+[Threads]
+Type=integer
+Minimum=0
+Maximum=64
+Label=Threads
+Category=Rendering Options
+Index=1
+Description=The number of rendering threads (0 for system processor count)
+Required=false
+DisableIfBlank=true
+
+[Build]
+Type=enum
+Values=None;32bit;64bit
+Label=Build To Force
+Category=Rendering Options
+Index=2
+Description="for USD we are unsure whether we need this?"
+Required=false
+DisableIfBlank=true

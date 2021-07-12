@@ -1,0 +1,26 @@
+[About]
+Type=label
+Label=About
+Category=About Plugin
+CategoryOrder=-1
+Index=0
+Default=Husk Standalone Plugin for Deadline
+Description=Not configurable
+
+[ConcurrentTasks]
+Type=label
+Label=ConcurrentTasks
+Category=About Plugin
+CategoryOrder=-1
+Index=0
+Default=True
+Description=Not configurable
+
+[USD_RenderExecutable]
+Type=multilinemultifilename
+Category=Render Executables
+CategoryOrder=0
+Index=0
+Label=HUSK Executable
+Description=The path to the husk executable file used for rendering. Enter alternative paths on separate lines.
+Default=C:\Program Files\Side Effects Software\Houdini 18.5.596\bin\husk.exe
