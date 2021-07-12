@@ -1,5 +1,11 @@
-# HuskStandaloneSubmitter
-Standalone Render submitter for Houdini Husk 18.5+
+# Husk Standalone Submitter
+
+Submitter script for Deadline to allow direct submission of USD files to Husk.
+<H2>
+Features:
+</H2>
+- Sequence Renders
+- Render Increments
 
 <H2>
 Version Compatibility:
