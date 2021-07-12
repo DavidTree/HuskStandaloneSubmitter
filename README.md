@@ -4,8 +4,10 @@ Submitter script for Deadline to allow direct submission of USD files to Husk.
 <H2>
 Features:
 </H2>
-- Sequence Renders
-- Render Increments
+<ul>
+  <li> - Sequence Renders </li>
+  <li> - Render Increments</li>
+</ul>
 
 <H2>
 Version Compatibility:
