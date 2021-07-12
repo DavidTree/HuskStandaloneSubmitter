@@ -10,6 +10,12 @@ Features:
 </ul>
 
 <H2>
+Setting Husk.exe Location
+</H2>
+
+in deadline Monitor goto Tools > Configure Plugin > HuskStandalone and set the Husk Path. This should be your houdini installation directory\bin\husk.exe
+
+<H2>
 Version Compatibility:
 </H2>
 
