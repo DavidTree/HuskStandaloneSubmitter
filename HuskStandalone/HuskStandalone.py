@@ -67,7 +67,7 @@ class HuskStandalone(DeadlinePlugin):
         #renderer handled in job file.
         outputPath = os.path.dirname(usdFile).split('/')[:-3]
         outputPath.append('render')
-        outputPath.append('3D_render')
+        outputPath.append('/3D_render')
         outputPath = os.path.abspath(os.path.join(*outputPath))
         filename = Path(usdFile).name
         filename = Path(filename).with_suffix("")
