@@ -64,10 +64,10 @@ class HuskStandalone(DeadlinePlugin):
 
         argument += "--frame-count 1" + " " #only render 1 frame per task
 
-        #argument += "--res 1280 720" + " " #force render resolution to 720p - only for now. add to interface
         #renderer handled in job file.
         outputPath = os.path.dirname(usdFile).split('/')[:-3]
         outputPath.append('render')
+        outputPath.append('3D_render')
         outputPath = os.path.abspath(os.path.join(*outputPath))
         filename = Path(usdFile).name
         filename = Path(filename).with_suffix("")

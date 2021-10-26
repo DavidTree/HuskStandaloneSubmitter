@@ -28,7 +28,7 @@ Installation
 
 Copy the files to the following locations:
 
-huskStandaloneSubmitter.py 
+huskStandaloneSubmitter.py
 DeadlineRepository \custom\scripts\Submission
 
 HuskStandalone (DIR)
