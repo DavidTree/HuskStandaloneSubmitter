@@ -65,7 +65,7 @@ class HuskStandalone(DeadlinePlugin):
         argument += "--frame-count 1" + " " #only render 1 frame per task
 
         #renderer handled in job file.
-        outputPath = os.path.dirname(usdFile).split('/')[:-3]
+        outputPath = os.path.dirname(usdFile).split('/')[:-4]
         outputPath.append('render/3D_render')
         outputPath = os.path.abspath(os.path.join(*outputPath))
         filename = Path(usdFile).name
