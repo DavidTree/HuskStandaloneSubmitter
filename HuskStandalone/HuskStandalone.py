@@ -71,7 +71,7 @@ class HuskStandalone(DeadlinePlugin):
         filename = Path(usdFile).name
         filename = Path(filename).with_suffix("")
         paddedFrameNumber = StringUtils.ToZeroPaddedString(frameNumber,4)
-        argument += "-o {0}/{1}/{1}.{2}.exr".format(outputPath,filename,paddedFrameNumber)
+        argument += "-o {0}/{1}.{2}.exr".format(outputPath,filename,paddedFrameNumber)
 
         argument += " --make-output-path" + " "
 
